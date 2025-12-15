@@ -1,0 +1,26 @@
+## Build
+bin/
+obj/
+
+## User-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+## Visual Studio / VS Code
+.vs/
+.vscode/
+
+## Logs
+*.log
+
+## OS
+.DS_Store
+Thumbs.db
+
+## Node (se usar front separado)
+node_modules/
+
+## Environment
+appsettings.Development.json

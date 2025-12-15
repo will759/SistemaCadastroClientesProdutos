@@ -1,0 +1,86 @@
+@model Cadastro.Domain.Entities.Product
+
+@{
+    ViewData["Title"] = "Editar Produto";
+}
+
+<h1>Editar Produto</h1>
+
+<h4>Dados do Produto</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <div class="card shadow">
+            <div class="card-body">
+                <form asp-action="Edit">
+                    <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+                    <input type="hidden" asp-for="Id" />
+
+                    <div class="form-group mb-3">
+                        <label asp-for="Name" class="control-label"></label>
+                        <input asp-for="Name" class="form-control" />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label asp-for="ClientId" class="control-label">Cliente</label>
+                        <select asp-for="ClientId" class="form-control" asp-items="ViewBag.ClientId"></select>
+                        <span asp-validation-for="ClientId" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label asp-for="Value" class="control-label"></label>
+                        <input asp-for="Value" class="form-control" placeholder="0,00" inputmode="decimal" />
+                        <span asp-validation-for="Value" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-check mb-3">
+                        <input class="form-check-input" asp-for="IsAvailable" />
+                        <label class="form-check-label" asp-for="IsAvailable"></label>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="submit" value="Salvar" class="btn btn-primary" />
+                        <a asp-action="Index" class="btn btn-secondary">Voltar</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+    
+    <script src="~/lib/cldrjs/cldr.js"></script>
+    <script src="~/lib/cldrjs/cldr/event.js"></script>
+    <script src="~/lib/cldrjs/cldr/supplemental.js"></script>
+    
+    <script src="~/lib/globalize/globalize.js"></script>
+    <script src="~/lib/globalize/globalize/number.js"></script>
+    
+    <script src="~/lib/jquery-validation-globalize/jquery.validate.globalize.js"></script>
+
+    <script>
+        // ATENÇÃO: Verifique se estes nomes de arquivo JSON (pt_numbers.json) estão corretos na sua pasta /lib/cldr-data/
+        $.when(
+            // Carrega os dados de números para português (pt)
+            $.getJSON("/lib/cldr-data/pt_numbers.json"), 
+            // Carrega o sistema de numeração (vírgula vs. ponto)
+            $.getJSON("/lib/cldr-data/numberingSystems.json")
+        ).then(function(numbers, numberingSystems) {
+            
+            Globalize.load(numbers[0], numberingSystems[0]);
+            Globalize.locale('pt-BR');
+            
+            var $form = $("form");
+            $form.removeData("validator");
+            $form.removeData("unobtrusiveValidation");
+            $.validator.unobtrusive.parse($form);
+        }).fail(function(jqxhr, textStatus, errorThrown) {
+             // O erro de falha será capturado aqui, se os JSONs não carregarem.
+             console.error("ERRO: Falha ao carregar dados CLDR. Verifique se os arquivos pt_numbers.json e numberingSystems.json estão em /lib/cldr-data/");
+        });
+    </script>
+}

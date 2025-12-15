@@ -1,0 +1,40 @@
+@using Cadastro.Domain.Entities
+@model Cadastro.Domain.Entities.Product
+
+@{
+    ViewData["Title"] = "Product Details";
+}
+
+<h1>Details</h1>
+<h4>Product</h4>
+<hr />
+
+<div>
+    <dl class="row">
+        <dt class="col-sm-3">Client Name</dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.Client.Name)
+        </dd>
+        
+        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Name)</dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Value)</dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.Value)
+        </dd>
+
+        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.IsAvailable)</dt>
+        <dd class="col-sm-9">
+            @Html.DisplayFor(model => model.IsAvailable)
+        </dd>
+        
+        </dl>
+</div>
+
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-primary">Edit</a>
+    <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+</div>

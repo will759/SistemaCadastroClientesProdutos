@@ -1,0 +1,104 @@
+﻿@model Cadastro.ViewModels.HomeViewModel
+
+@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<h1 class="mb-4">Dashboard</h1>
+
+@if (TempData["ImportMessage"] != null)
+{
+    // Removido o bloco de exibição de TempData, pois era usado principalmente para mensagens de importação.
+}
+
+<div class="d-flex flex-wrap gap-4 mb-5 align-items-start border-bottom pb-4">
+    
+    <div class="me-4 pt-1">
+        <span class="d-block mb-2 fw-bold text-uppercase text-secondary">Ações de Relatórios</span>
+        <a asp-controller="Home" asp-action="ExportExcel" class="btn btn-success me-2">
+            <i class="bi bi-file-earmark-excel"></i> Exportar Excel
+        </a>
+        <a asp-controller="Home" asp-action="ExportPdf" class="btn btn-danger">
+            <i class="bi bi-file-earmark-pdf"></i> Exportar PDF
+        </a>
+    </div>
+
+    </div>
+
+<div class="row mb-4">
+    <div class="col-md-6">
+        <div class="card text-white bg-primary shadow">
+            <div class="card-body">
+                <h5 class="card-title">Clientes</h5>
+                <h2>@Model.TotalClientes</h2>
+                <a asp-controller="Clients" asp-action="Index" class="text-white">
+                    Ver clientes →
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="card text-white bg-success shadow">
+            <div class="card-body">
+                <h5 class="card-title">Produtos</h5>
+                <h2>@Model.TotalProdutos</h2>
+                <a asp-controller="Products" asp-action="Index" class="text-white">
+                    Ver produtos →
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="card mb-4 shadow">
+    <div class="card-header bg-dark text-white">
+        Últimos Clientes
+    </div>
+    <div class="card-body p-0">
+        <table class="table table-striped mb-0">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var c in Model.UltimosClientes)
+                {
+                    <tr>
+                        <td>@c.Name @c.LastName</td>
+                        <td>@c.Email</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="card shadow">
+    <div class="card-header bg-dark text-white">
+        Últimos Produtos
+    </div>
+    <div class="card-body p-0">
+        <table class="table table-striped mb-0">
+            <thead>
+                <tr>
+                    <th>Produto</th>
+                    <th>Cliente</th>
+                    <th>Valor</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var p in Model.UltimosProdutos)
+                {
+                    <tr>
+                        <td>@p.Name</td>
+                        <td>@p.Client?.Name</td>
+                        <td>R$ @p.Value.ToString("N2", new System.Globalization.CultureInfo("pt-BR"))</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
