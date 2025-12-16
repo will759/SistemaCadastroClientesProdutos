@@ -175,6 +175,8 @@ Geração de relatórios
 
 Boas práticas de código
 
+---
+
  Autor
 
 William de Matos Pereira
