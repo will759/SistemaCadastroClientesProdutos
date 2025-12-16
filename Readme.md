@@ -82,11 +82,11 @@ O projeto segue boas práticas de organização e separação de responsabilidad
   
   Dashboard vazio (antes de ser preenchido):
   
-  ![Dashboard](./docs/images/Dashboard.png)
+  ![Dashboard](./Cadastro/docs/images/Dashboard.png)
   
   Dashboard após cadastro de dados (depois de ser preenchido):
   
-  ![Dashboard com dados](./docs/images/Dashboarddps.png)
+  ![Dashboard com dados](./Cadastro/docs/images/Dashboarddps.png)
   
   ---
   
@@ -95,15 +95,15 @@ O projeto segue boas práticas de organização e separação de responsabilidad
   
   Menu Clientes (antes de estar preenchido):
   
-  ![Menu Clientes](./docs/images/menucliente.png)
+  ![Menu Clientes](./Cadastro/docs/images/menucliente.png)
   
   Tela de criação de cliente (sem estar preenchida):
   
-  ![Tela Criar Cliente](./docs/images/telacreate.png)
+  ![Tela Criar Cliente](./Cadastro/docs/images/telacreate.png)
   
   Tela de clientes preenchida:
   
-  ![Clientes Preenchida](./docs/images/Clientes.png)
+  ![Clientes Preenchida](./Cadastro/docs/images/Clientes.png)
   
   ---
   
@@ -112,15 +112,15 @@ O projeto segue boas práticas de organização e separação de responsabilidad
   
   Tela de Produtos (antes de ser preenchido):
   
-  ![Produtos vazio](./docs/images/produtosantes.png)
+  ![Produtos vazio](./Cadastro/docs/images/produtosantes.png)
   
   Tela de criação de produto (com tudo preenchido):
   
-  ![Criar Produto Preenchido](./docs/images/criandoproduto.png)
+  ![Criar Produto Preenchido](./Cadastro/docs/images/criandoproduto.png)
   
   Tela de Produtos preenchida:
   
-  ![Produtos Preenchida](./docs/images/produtopreenchida.png)
+  ![Produtos Preenchida](./Cadastro/docs/images/produtopreenchida.png)
   
   ---
   
@@ -129,11 +129,11 @@ O projeto segue boas práticas de organização e separação de responsabilidad
   
   Relatório em Excel (já exportado e preenchido):
   
-  ![Excel Exportado](./docs/images/excel.png)
+  ![Excel Exportado](./Cadastro/docs/images/excel.png)
   
   Relatório em PDF (preenchido):
   
-  ![PDF Preenchido](./docs/images/pdf.png)
+  ![PDF Preenchido](./Cadastro/docs/images/pdf.png)
   
   ---
 ## Como executar o projeto
@@ -161,7 +161,7 @@ dotnet run
 
 https://localhost:5001
 
-
+```
 
 Objetivo do Projeto
 
@@ -180,5 +180,7 @@ Boas práticas de código
  Autor
 
 William de Matos Pereira
+
 Estudante de Ciência da Computação
+
 Desenvolvedor Full-Stack (.NET)
