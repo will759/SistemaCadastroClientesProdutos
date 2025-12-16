@@ -142,8 +142,6 @@ O projeto segue boas práticas de organização e separação de responsabilidad
 - .NET SDK **6.0** ou superior
 - Visual Studio ou VS Code
 
-## ▶️ Como Executar o Projeto
-
 ```bash
 # 1. Clonar o repositório
 git clone https://github.com/will759/SistemaCadastroClientesProdutos
